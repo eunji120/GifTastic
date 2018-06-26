@@ -2,10 +2,21 @@ body {
     background-image: url(../images/brickwall/brickwall.png)
 }
 
+div {
+    position: relative;
+    overflow: hidden;
+}
+
 h1 {
     font-family: cursive;
     font-size: 36px;
     color: teal;
+    display: inline-block;
+}
+
+form {
+    float: right;
+    text-align: center;
 }
 
 #add-person {
