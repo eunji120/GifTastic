@@ -9,23 +9,29 @@
 </head>
 <body>
     <div class="container">
-        <h1>Famouse People</h1>
+        <div class="row">
+            <h1>Famouse People</h1>
+        </div>
+
+        <!-- Rendered buttons will get dumped here-->
+        <div class="row">
+            <div class="col-xs-9 col-xs-9 col-xs-9 col-xs-9" id="buttons-view"></div>
+
+            <!-- Button triggers new person to be added -->
+            <form class="col-xs-3 col-xs-3 col-xs-3 col-xs-3" id="person-form">
+                <label for="person-input">Add a Person!</label>
+                <br>
+                <input type="text" id="person-input">
+                <br>
+                <input id="add-person" type="submit" value="Submit">
+            </form> 
+        </div>
 
         <!-- People will get dumped here-->
-        <div id="people-view"></div>
-    
-        <!-- Rendered buttons will get dumped here-->
-        <div id="buttons-view"></div>
-
-        <!-- Button triggers new person to be added -->
-        <form id="person-form">
-            <label for="person-input">Add a Person!</label>
-            <br>
-            <input type="text" id="person-input">
-            <br>
-
-            <input id="add-person" type="submit" value="Submit">
-        </form>   
+        <div class="row">
+            <div class="col-xs-12 col-xs-12 col-xs-12 col-xs-12" id="people-view"></div>
+        </div>
+  
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="assets/javascript/app.js"></script>
     </div>
