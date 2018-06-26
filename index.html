@@ -10,10 +10,24 @@
     <title>GifTastic</title>
 </head>
 <body>
+    <div class="container">
+        <h1>Famouse People</h1>
 
+        <!-- People will get dumped here-->
+        <div id="people-view"></div>
+    
+        <!-- Rendered buttons will get dumped here-->
+        <div id="buttons-view"></div>
 
+        <!-- Button triggers new person to be added -->
+        <form id="person-form">
+            <label for="person-input">Add a Person!</label>
+            <br>
+            <input type="text" id="person-input">
+            <br>
 
-
-
+            <input id="add-person" type="submit" value="Submit">
+        </form>   
+    </div>
 </body>
 </html>
