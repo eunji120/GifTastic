@@ -29,6 +29,10 @@ function displayPersonInfo() {
             
             //setting the src attribute of the image to a property pulled off the result item
             personImage.attr("src", results[i].images.fixed_height_still.url);
+            personImage.attr("data-still", results[i].images.fixed_height_still.url);
+            personImage.attr("data-animate", results[i].images.fixed_height.url);
+            personImage.attr("data-state", "still");
+            personImage.addClass("gif");
             
             //showing the rating and image
             personDiv.append(p);
@@ -39,6 +43,21 @@ function displayPersonInfo() {
         }
     });
 };
+
+//clicking the gifs changing their animation status
+$("#people-view").on("click", ".gif", function(event) {
+    event.preventDefault();
+
+    var state = $(this).attr("data-state");
+
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+})
 
 //display person data
 function renderButtons() {
