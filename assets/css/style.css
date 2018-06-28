@@ -8,9 +8,10 @@ div {
 }
 
 h1 {
-    font-family: cursive;
+    font-family: cursive !important;
     font-size: 36px;
-    color: teal;
+    color: teal !important;
+    font-weight: bold !important;
     display: inline-block;
 }
 
@@ -33,3 +34,4 @@ label {
     color: teal;
     margin: 20px;
 }
+
