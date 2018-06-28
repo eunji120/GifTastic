@@ -2,7 +2,7 @@
 var people = ["Drake", "Barak Obama", "Donald Trump", "Oprah Winfrey", "Justin Bieber", "Beyoncé", "Madonna", "Kim Kardashian", "Sarah Palin", "Arnold Schwarzenegger"];
 
 
-$("#buttons-view").on("click", function() {
+function displayPersonInfo() {
     var person = $(this).attr("data-person");
     var queryURL = "http://api.giphy.com/v1/gifs/?t=" + person + "&api_key=cZVFvzDv27P3cu5wX8rSTV1gYTrDAJ6Q";
 
@@ -33,64 +33,46 @@ $("#buttons-view").on("click", function() {
             personDiv.append(p);
             personDiv.append(personImage);
 
-            // var gifURL = response.Gif;
-            // var gif = $(".gif").attr("src", gifURL);
-            // personDiv.append(gif);
-            // $("#people-view").prepend(personDiv) 
         }
     });
 });
 
+//display person data
+function renderButtons() {
 
+    //deleting the people before adding new person
+    $("#buttons-view").empty();
 
-
-
-
-
-
-
-
-
-
-// //displayPeopleGif function re-renders the HTML to show the corresponding gifs
-// function displayPeopleGif() {
-    
-//     var person = $(this).attr("data-name");
-//     var queryURL = "http://api.giphy.com/v1/gifs/?t=" + person + "famouse+people&api_key=cZVFvzDv27P3cu5wX8rSTV1gYTrDAJ6Q";
-
-//     //AJAX call for the specific individual
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     }).then(function(response) {
-//         console.log(response);
-//         //creating a div to hold the person
-//         var personDiv = $("<div class='person'>");
-//         //storing the rating data
-//         var rating = response.Rated;
-//         //creating an element to have the rating shown
-//         var pOne = $("<p>").text("Rating: " + rating);
-//         //showing the rating
-//         personDiv.append(pOne);
-
-//         var gifURL = response.Gif;
-//         var gif = $(".gif").attr("src", gifURL);
-//         personDiv.append(gif);
-//         $("#people-view").prepend(personDiv) 
-//     });
-// }
-
-
-
-
-var button;
-
-var renderButtons = function () {
-    $("#add-person").empty();
-
+    //lloking through the array of people
     for (var i = 0; i < people.length; i++) {
-        var 
-    }
 
+        //generating buttons for each person in the array
+        var button = $("<button>");
+        //adding a class of person-btn to the button
+        button.addClass("person-btn");
+        //adding a data attribute
+        button.attr("data-person", people[i]);
+        //providing the initial button text
+        button.text(people[i]);
+        //adding the button to the buttons-view div
+        $("#buttons-view").append(button);
+    }
 }
+
+
+$("#add-person").on("click", function(event) {
+
+    event.preventDefault();
+    //grabbing input from the textbox
+    var person = $("#person-input").val().trim();
+    //adding person from the textbox to the array
+    people.push(person);
+    //calling renderButton
+    renderButtons();
+});
+
+//Adding a click event listener to all elements with a class of "person-btn"
+$(document).on("click", ".person-btn", displayPersonInfo)
+
+renderButtons();
 
