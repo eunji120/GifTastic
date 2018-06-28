@@ -17,6 +17,7 @@ function displayPersonInfo() {
         var results = response.data;
 
         for (var i = 0; i < results.length; i++) {
+
             //creating a div to hold the person
             var personDiv = $("<div class='person'>");
             
@@ -27,11 +28,13 @@ function displayPersonInfo() {
             var personImage = $("<img>");
             
             //setting the src attribute of the image to a property pulled off the result item
-            personImage.attr("src", results[i].images.fixed_height.url);
+            personImage.attr("src", results[i].images.fixed_height_still.url);
             
             //showing the rating and image
             personDiv.append(p);
             personDiv.append(personImage);
+
+            $("#people-view").prepend(personDiv);
 
         }
     });
@@ -69,6 +72,7 @@ $("#add-person").on("click", function(event) {
     people.push(person);
     //calling renderButton
     $(document).ready(renderButtons());
+
 });
 
 //Adding a click event listener to all elements with a class of "person-btn"
