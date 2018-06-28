@@ -35,7 +35,7 @@ function displayPersonInfo() {
 
         }
     });
-});
+};
 
 //display person data
 function renderButtons() {
@@ -68,11 +68,11 @@ $("#add-person").on("click", function(event) {
     //adding person from the textbox to the array
     people.push(person);
     //calling renderButton
-    renderButtons();
+    $(document).ready(renderButtons());
 });
 
 //Adding a click event listener to all elements with a class of "person-btn"
 $(document).on("click", ".person-btn", displayPersonInfo)
 
-renderButtons();
+$(document).ready(renderButtons());
 
