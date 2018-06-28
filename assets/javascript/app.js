@@ -4,7 +4,7 @@ var people = ["Drake", "Barak Obama", "Donald Trump", "Oprah Winfrey", "Justin B
 
 function displayPersonInfo() {
     var person = $(this).attr("data-person");
-    var queryURL = "http://api.giphy.com/v1/gifs/?t=" + person + "&api_key=cZVFvzDv27P3cu5wX8rSTV1gYTrDAJ6Q";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + person + "&api_key=cZVFvzDv27P3cu5wX8rSTV1gYTrDAJ6Q";
 
     $.ajax({
         url: queryURL,
@@ -27,7 +27,7 @@ function displayPersonInfo() {
             var personImage = $("<img>");
             
             //setting the src attribute of the image to a property pulled off the result item
-            personImage.attr("src", results[i].images.url);
+            personImage.attr("src", results[i].images.fixed_height.url);
             
             //showing the rating and image
             personDiv.append(p);
